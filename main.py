@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
     ds = get_run_configuration(args=args, dataset=dataset, TASK_ID=args.task_id)
 
-    res_path = f"icpr/{args.dataset}/"
+    res_path = f"bigdata_cels/{args.dataset}/"
     os.system(f'mkdir -p "{res_path}"')
 
     cf_res = []
@@ -171,8 +171,8 @@ if __name__ == '__main__':
                 f.write("\n\n")
 
 
-    np.save(res_path + 'saliency_cf.npy', np.array(cf_res))
-    np.save(res_path + 'saliency_cf_prob.npy', np.array(cf_probs))
-    np.save(res_path + 'map_cf.npy', np.array(cf_maps))
+    np.save(res_path + 'saliency_cf.npy', np.array(cf_res)) # the final counterfactuals
+    np.save(res_path + 'saliency_cf_prob.npy', np.array(cf_probs)) # the target probability
+    np.save(res_path + 'map_cf.npy', np.array(cf_maps)) # the saliency maps
 
 
