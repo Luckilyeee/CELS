@@ -110,7 +110,7 @@ class CFExplainer(Saliency):
             loss.backward()
 
             # Gradient clipping
-            mask.grad.data.clamp_(0, 1)
+            # mask.grad.data.clamp_(0, 1)
 
             metrics['Mean Gradient'].append(float(np.mean(mask.grad.cpu().detach().numpy())))
             metrics['L_Maximize'].append(float(l_maximize.item()))
